@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08060d">
+  <title>Avances · Glitch Channel</title>
+  <meta name="description" content="Diario público de avances de Glitch Channel.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{color-scheme:dark;--bg:#08060d;--panel:#100c19;--ink:#f5f1ff;--mute:#aaa2ba;--line:#2a203a;--v:#a568ff;--m:#ff62d8;--hd:"Chakra Petch",system-ui,sans-serif;--mo:"Space Mono",monospace;box-sizing:border-box}
+    *,*::before,*::after{box-sizing:inherit}html{min-height:100%;background:var(--bg)}body{margin:0;min-height:100vh;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);color:var(--ink);font:16px/1.65 var(--hd);background:radial-gradient(ellipse 78% 36% at 50% -10%,rgba(139,61,255,.24),transparent 72%),var(--bg)}
+    .wrap{width:min(100% - 40px,680px);margin:auto;padding:48px 0 64px}.eyebrow,.label,.meta,.count,.status,footer{font-family:var(--mo)}.eyebrow{margin:0 0 10px;color:var(--m);font-size:.72rem;letter-spacing:.23em}h1{margin:0;font:700 clamp(3.6rem,15vw,6rem)/.88 var(--hd);letter-spacing:-.055em;text-transform:uppercase}h1 span{position:relative;display:inline-block}h1 span::after{content:attr(data-t);position:absolute;inset:0;color:var(--m);clip-path:inset(0 0 58% 0);transform:translateX(-2px);opacity:.72;animation:glitch 7s steps(1) infinite}.tag{max-width:38rem;margin:20px 0 30px;color:#c4bdd1;font: .92rem/1.8 var(--mo)}
+    .signal{height:34px;margin:0 0 42px;display:flex;align-items:end;gap:3px;opacity:.58}.signal i{flex:1;height:100%;transform:scaleY(.22);transform-origin:bottom;background:linear-gradient(var(--m),var(--v));animation:eq 1.8s ease-in-out infinite alternate}.signal i:nth-child(3n){animation-delay:-.7s}.signal i:nth-child(4n){animation-delay:-1.2s}
+    .composer{padding:18px;border:1px solid var(--line);background:linear-gradient(135deg,rgba(165,104,255,.08),transparent 55%),var(--panel);margin-bottom:38px}.composer[hidden]{display:none}.label{display:block;color:var(--m);font-size:.7rem;letter-spacing:.16em}.hint{margin:3px 0 10px;color:var(--mute);font-size:.82rem}textarea{display:block;width:100%;min-height:112px;resize:vertical;margin:0 0 12px;padding:12px 13px;border:1px solid #352a47;border-radius:2px;background:#09070e;color:var(--ink);font:inherit;line-height:1.55}textarea::placeholder{color:#716a7e}textarea:focus-visible{outline:2px solid var(--v);outline-offset:2px;border-color:transparent}.row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.btn{border:1px solid var(--v);border-radius:2px;background:rgba(165,104,255,.18);color:var(--ink);padding:10px 18px;font:700 .8rem var(--hd);letter-spacing:.11em;text-transform:uppercase;cursor:pointer;transition:background .18s ease,box-shadow .18s ease}.btn:hover:not(:disabled){background:#7841c9;box-shadow:0 0 18px rgba(165,104,255,.32)}.btn:disabled{opacity:.46;cursor:not-allowed}.btn.ai{border-color:var(--m);background:rgba(255,98,216,.1)}.count{margin-left:auto;color:var(--mute);font-size:.72rem}.status{min-height:1.5em;margin:12px 0 22px;color:#c5b6e1;font-size:.76rem}.status:empty{display:none}
+    .feed{position:relative;padding-left:27px}.feed::before{content:"";position:absolute;left:5px;top:7px;bottom:0;width:1px;background:linear-gradient(var(--m),var(--line) 35%,transparent)}.post{position:relative;margin:0 0 30px;animation:arrive .35s ease both}.post::before{content:"";position:absolute;left:-27px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--v)}.post:first-child::before{background:var(--m);border-color:var(--m);box-shadow:0 0 12px rgba(255,98,216,.55)}.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px;color:var(--mute);font-size:.68rem;letter-spacing:.035em}.meta b{color:var(--v);font-weight:400}.meta time{font:inherit}.latest{padding:2px 7px;border:1px solid rgba(255,98,216,.35);color:var(--m);font-size:.61rem;letter-spacing:.08em}.meta button{margin-left:auto;padding:3px 5px;border:0;background:none;color:var(--mute);font:inherit;cursor:pointer}.meta button:hover{color:var(--m)}.txt{margin:0;font-size:1.04rem;line-height:1.72;white-space:pre-wrap;overflow-wrap:anywhere}.empty{color:var(--mute);font: .85rem var(--mo)}footer{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:52px;padding-top:15px;border-top:1px solid var(--line);color:var(--mute);font-size:.68rem}:focus-visible{outline:2px solid var(--m);outline-offset:3px}
+    @keyframes eq{to{transform:scaleY(.8)}}@keyframes arrive{from{opacity:0;transform:translateY(8px)}}@keyframes glitch{0%,96%,100%{transform:translateX(0)}97%{transform:translateX(-4px)}98%{transform:translateX(3px)}}
+    @media(max-width:480px){.wrap{width:min(100% - 32px,680px);padding-top:36px}.composer{padding:15px}.tag{font-size:.82rem}.meta{gap:7px}.signal{margin-bottom:34px}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.signal i{transform:scaleY(.42)}}
+  </style>
+</head>
+<body>
+  <main class="wrap" id="root"></main>
+  <script>
+    const $=id=>document.getElementById(id);
+    const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const fmt=t=>new Intl.DateTimeFormat('es-ES',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}).format(new Date(t));
+    $('root').innerHTML=`<p class="eyebrow">GLITCH CHANNEL · DIARIO DE DESARROLLO</p>
+      <h1><span data-t="Avances">Avances</span></h1>
+      <p class="tag">Cada paso deja una señal. Compartimos lo que estamos construyendo, prueba a prueba.</p>
+      <div class="signal" aria-hidden="true">${Array.from({length:32},()=>'<i></i>').join('')}</div>
+      <p class="status" id="status" aria-live="polite" role="status">Cargando avances…</p>
+      <section class="feed" id="feed" aria-label="Avances de Glitch Channel"></section>
+      <footer><span>© Glitch Channel</span><span>Registro público de avances</span></footer>`;
+    function render(posts){const list=[...posts].sort((a,b)=>b.t-a.t);$('status').textContent='';$('feed').innerHTML=list.length?list.map((p,i)=>`<article class="post"><div class="meta"><b>AVANCE #${String(list.length-i).padStart(2,'0')}</b><time datetime="${new Date(p.t).toISOString()}">${esc(fmt(p.t))}</time>${i===0?'<span class="latest">MÁS RECIENTE</span>':''}</div><p class="txt">${esc(p.text)}</p></article>`).join(''):'<p class="empty">Aún no hay avances. La primera señal llegará pronto.</p>'}
+    fetch('./posts.json').then(r=>{if(!r.ok)throw new Error('No se pudo cargar');return r.json()}).then(render).catch(()=>{$('status').textContent='No se pudieron cargar los avances. Inténtalo de nuevo más tarde.'});
+  </script>
+</body>
+</html>
